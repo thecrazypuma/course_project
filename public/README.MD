@@ -54,6 +54,7 @@ CREATE TABLE educationProgramms (
 
 web/
 ├── create_discipline.php           => страница добавления дисциплины
+
 ├── create_education_program.php    => страница добавления образовательной программы
 ├── create_employee.php             => страница добавления сотрудника
 ├── create_position.php             => страница добавления должности
