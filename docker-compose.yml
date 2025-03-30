@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: 'nginx-container'
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app/
+    links:
+      - php
+    depends_on:
+      - php
+  php:
+    container_name: 'php-container'
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
+    depends_on:
+      - mysql_db
+  mysql_db:
+    container_name: 'mysql-container'
+    image: mysql:8
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: Staffs
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./dbdata:/var/lib/mysql/
+  phpmyadmin:
+    container_name: 'phpmyadmin-container'
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql_db
+    environment:
+      PMA_HOST: mysql_db
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: backend
+      MYSQL_PASSWORD: FFt9CcZyajpFdBE7
