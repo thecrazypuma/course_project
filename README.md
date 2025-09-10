@@ -1,3 +1,4 @@
+### Добавление таблиц для базы данных ###
 <!-- Должности -->
 CREATE TABLE positions (
     id INT PRIMARY KEY AUTO_INCREMENT,
