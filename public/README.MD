@@ -51,9 +51,8 @@ CREATE TABLE educationProgramms (
     FOREIGN KEY (disciplineID) REFERENCES disciplines(id) ON DELETE CASCADE
 );
 
-
-web/
-├── create_discipline.php           => страница добавления дисциплины\
+web
+├── create_discipline.php           => страница добавления дисциплины
 
 ├── create_education_program.php    => страница добавления образовательной программы
 ├── create_employee.php             => страница добавления сотрудника
@@ -97,3 +96,4 @@ web/
 │   └── table.css                   => стили для таблиц
 ├── javascript/                     => папка для js скриптов
 │   └── index.js                    => Файл, в котором хранятся все скрипты
+
